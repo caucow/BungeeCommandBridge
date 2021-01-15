@@ -1,0 +1,10 @@
+name: CCCommandBridge
+main: com.caucraft.commandbridge.SpigotPlugin
+version: 1.0
+depend: []
+api-version: 1.13
+commands:
+  bridge:
+    description: BungeeCord bridge command
+    usage: /bridge [bungeecmd]
+    aliases: []

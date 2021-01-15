@@ -1,0 +1,4 @@
+name: CCCommandBridge
+main: com.caucraft.commandbridge.BungeePlugin
+version: 1.0
+author: caucow
