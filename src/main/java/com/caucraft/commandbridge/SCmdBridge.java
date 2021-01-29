@@ -29,6 +29,10 @@ public class SCmdBridge implements CommandExecutor {
             sender.sendMessage("No perms");
             return true;
         }
+        if (args.length == 0) {
+            sender.sendMessage("Enter a bungee command to run");
+            return true;
+        }
         
         Player p = (Player) sender;
         ByteArrayDataOutput out = ByteStreams.newDataOutput();
