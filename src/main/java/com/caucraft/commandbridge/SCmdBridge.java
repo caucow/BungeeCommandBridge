@@ -1,6 +1,5 @@
 package com.caucraft.commandbridge;
 
-import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import org.bukkit.command.Command;
@@ -26,7 +25,7 @@ public class SCmdBridge implements CommandExecutor {
             sender.sendMessage("Err: Not a player");
             return true;
         }
-        if (!sender.hasPermission(pl.bridgePerm)) {
+        if (pl.requirePerm && !sender.hasPermission(pl.bridgePerm)) {
             sender.sendMessage("No perms");
             return true;
         }

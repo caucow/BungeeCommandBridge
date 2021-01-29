@@ -1,6 +1,8 @@
 package com.caucraft.commandbridge;
 
 import java.util.logging.Level;
+import net.md_5.bungee.config.YamlConfiguration;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionDefault;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -16,6 +18,8 @@ public class SpigotPlugin extends JavaPlugin {
     public Permission bridgePerm;
     public Permission bridgeAdminPerm;
     
+    public boolean requirePerm;
+    
     @Override
     public void onLoad() {
         getLogger().log(Level.INFO, "Plugin loaded");
@@ -23,6 +27,10 @@ public class SpigotPlugin extends JavaPlugin {
     
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+        FileConfiguration conf = getConfig();
+        requirePerm = conf.getBoolean("require-perm", false);
+        
         getServer().getMessenger().registerOutgoingPluginChannel(this, CHANNEL);
         bridgePerm = new Permission("cccmdbridge.cmd.bridge", "Use Bungee Bridge Command", PermissionDefault.TRUE);
         // unused because lmao effort but maybe useful later?
