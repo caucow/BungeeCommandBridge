@@ -1,6 +1,7 @@
 name: CCCommandBridge
 main: com.caucraft.commandbridge.SpigotPlugin
 version: 1.0
+author: caucow
 depend: []
 api-version: 1.13
 commands:
